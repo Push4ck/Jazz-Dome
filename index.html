@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/images/favico.png" sizes="32x32" type="image/png">
+    <script src="https://kit.fontawesome.com/27594f998b.js" crossorigin="anonymous"></script>
+    <title>Music Player</title>
+</head>
+<body>
+    <div class="container">
+        <div class="music-player">
+            <nav>
+                <div class="circle">
+                    <i class='fa-solid fa-angle-left'></i>
+                </div>
+                <div class="circle">
+                    <i class="fa-solid fa-bars" onclick="openSongList()"></i>
+                </div>
+            </nav>
+            <img src="assets/images/ocean-eyes.png" class="song-img"/>
+            <h1 id="songName">Ocean Eyes</h1>
+            <p id="artistName">Billie Eilish</p>
+            <audio id="song">
+                <source src="assets/songs/ocean-eyes.mp3" type="audio/mpeg" />
+            </audio>
+            <input type="range" value="0" id="progress">
+            <div class="volume-control">
+                <input type="range" min="0" max="1" step="0.1" value="1" id="volume" onchange="changeVolume()">
+            </div>
+            <div class="controls">
+                <div><i class="fa-solid fa-backward"></i></div>
+                <div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i></div>
+                <div><i class="fa-solid fa-forward"></i></div>
+            </div>
+        </div>
+        <div class="song-list" id="songList">
+            <button class="close-button" onclick="moveSongListBack()"><i class="fa-solid fa-times"></i></button>
+            <ul>
+                <li onclick="selectSong('assets/songs/ocean-eyes.mp3', 'assets/images/ocean-eyes.png', 'Ocean Eyes', 'Billie Eilish')">Ocean Eyes</li>
+                <li onclick="selectSong('assets/songs/misa-misa.mp3', 'assets/images/misa-misa.png', 'Misa Misa', 'Corpse')">Misa Misa</li>
+                <li onclick="selectSong('assets/songs/useless.mp3', 'assets/images/useless.png', 'Useless', 'Omar Apollo')">Useless</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

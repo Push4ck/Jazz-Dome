@@ -2,8 +2,6 @@
 
 Jazz-Dome is a delightful music player web application that allows you to enjoy your favourite music tracks in a stylish and immersive environment. Dive into the world of jazz with a visually appealing music player and a collection of handpicked songs.
 
-![Jazz-Dome Screenshot](screenshot.png)
-
 ## Features 🎵
 
 - Play, pause, and control your music with ease.

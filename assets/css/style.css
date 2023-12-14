@@ -1,0 +1,266 @@
+/* Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;600&display=swap");
+
+/* Resetting default styles for all elements */
+*, *:after, *:before {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-size: 100%;
+    vertical-align: baseline;
+    text-decoration: none;
+}
+
+/* Root level CSS variables for colors, font weights, etc. */
+:root {
+    /* Hue color */
+    --hue-color: 141;
+    
+    /* HSL color */
+    --player-color: hsl(var(--hue-color), 62%, 52%);
+    --player-button-color: hsl(var(--hue-color), 62%, 44%);
+    --player-border-color: hsl(0, 0%, 20%);
+    --box-shadow-color: hsl(0, 0%, 10%);
+    --container-color: hsl(var(--hue-color), 73%, 42%);
+    --white-color: hsl(0, 0%, 100%);
+    --black-color: hsl(0, 0%, 7%);
+
+    /* font-weight */
+    --light: 200;
+    --normal: 500;
+    --heavy: 600;
+}
+
+/* Applying 'Poppins' font to all elements within the body */
+body * {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Main container styles */
+.container {
+    width: 100%;
+    height: 100vh;
+    background: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Music player styles */
+.music-player {
+    z-index: 100000;
+    width: 400px;
+    padding: 25px 35px;
+    border: 4px solid var(--player-border-color);
+    border-radius: 30px;
+    box-shadow: 0 1px 10px var(--box-shadow-color);
+    background: var(--player-color);
+    text-align: center;
+}
+
+/* Navigation bar styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+nav .header h1 {
+    font-size: 30px;
+    font-weight: var(--heavy);
+    color: var(--white-color);
+    margin-top: -2.4px;
+}
+
+nav .circle {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    background: var(--player-button-color);
+    color: var(--white-color);
+}
+
+nav .circle:hover {
+    opacity: 0.7;
+}
+
+/* Song image styles */
+.song-img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 4px solid var(--player-border-color);
+    box-shadow: 0 1px 10px var(--box-shadow-color);
+}
+
+/* Song details styles */
+.music-player h1 {
+    font-size: 30px;
+    font-weight: var(--heavy);
+    color: var(--white-color);
+    margin-top: 20px;
+}
+
+.music-player p {
+    font-size: 20px;
+    font-weight: var(--normal);
+    color: var(--black-color);
+    margin-bottom: -20px;
+}
+
+/* Song list styles */
+.song-list {
+    position: absolute;
+    top: 50%;
+    left: 63%;
+    transform: translate(-100%, -50%);
+    width: 26%;
+    height: 70%;
+    font-size: 18px;
+    font-weight: var(--heavy);
+    border: 4px solid var(--player-border-color);
+    border-radius: 0 20px 20px 0;
+    box-shadow: 0 1px 10px var(--box-shadow-color);
+    background: var(--player-color);
+    color: var(--white-color);
+    z-index: 0;
+    transition: smooth 0.5s;
+}
+
+.song-list.active {
+    left: 80%;
+    transition: left 0.5s;
+}
+
+.song-list ul {
+    list-style: none;
+    padding-right: 30px;
+    padding-top: 10px;
+    margin: 0;
+}
+
+.song-list li {
+    text-align: right;
+    cursor: pointer;
+    padding: 20px;
+    margin-right: 10%;
+}
+
+.song-list li:hover {
+    color: var(--black-color);
+}
+
+.song-list li.active {
+    color: var(--black-color);
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--player-button-color);
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--white-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.close-button:hover {
+    opacity: 0.7;
+}
+
+/* Progress bar styles */
+#progress {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    background: var(--white-color);
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 40px 0;
+}
+
+#progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: var(--player-button-color);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 4px solid var(--player-border-color);
+}
+
+/* Playback controls styles */
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.controls #ctrlIcon {
+    font-size: 25px;
+}
+
+.controls div {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+    background: var(--black-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--white-color);
+    cursor: pointer;
+    box-shadow: 0 1px 10px var(--box-shadow-color);
+}
+
+.controls div:hover {
+    background: var(--player-border-color);
+}
+
+.controls div:nth-child(2) {
+    transform: scale(1.5);
+    background: var(--white-color);
+    color: var(--black-color);
+}
+
+/* Volume control styles */
+.volume-control {
+    position: absolute;
+    top: 46%;
+    right: 40px;
+    transform: translate(-650%, 800%);
+    width: 100px;
+}
+
+#volume {
+    width: 100%;
+    height: 6px;
+    background: var(--white-color);
+    border: none;
+    border-radius: 5px;
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    outline: none;
+}
+
+#volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid var(--player-border-color);
+    background: var(--player-button-color);
+    cursor: pointer;
+}
+

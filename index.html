@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to external stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Favicon for the website -->
+    <link rel="icon" href="assets/images/favico.png" sizes="32x32" type="image/png">
+    <!-- Title of the website -->
+    <title>Jazz Dome</title>
+</head>
+<body>
+    <!-- Main container for the webpage -->
+    <div class="container">
+        <!-- Music player section -->
+        <div class="music-player">
+            <!-- Navigation bar -->
+            <nav>
+                <!-- Logo and site title -->
+                <div id="logo" class="header">
+                    <!-- Uncomment the line below if using an image logo -->
+                    <!-- <img src="assets/images/favico.png" /> -->
+                    <h1>Jazz-Dome</h1>
+                </div>
+                <!-- Navigation icon for the song list -->
+                <div class="circle">
+                    <i id="more" class="fa-solid fa-bars" onclick="openSongList()"></i>
+                </div>
+            </nav>
+            <!-- Song details and controls -->
+            <img src="assets/images/ocean-eyes.png" class="song-img"/>
+            <h1 id="songName">Ocean Eyes</h1>
+            <p id="artistName">Billie Eilish</p>
+            <!-- Audio element for playing songs -->
+            <audio id="song">
+                <source src="assets/songs/ocean-eyes.mp3" type="audio/mpeg" />
+            </audio>
+            <!-- Progress bar for tracking song playback -->
+            <input type="range" value="0" id="progress">
+            <!-- Volume control section -->
+            <div class="volume-control">
+                <input type="range" min="0" max="1" step="0.1" value="1" id="volume" onchange="changeVolume()">
+            </div>
+            <!-- Playback control buttons -->
+            <div class="controls">
+                <div><i class="fa-solid fa-backward"></i></div>
+                <div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i></div>
+                <div><i class="fa-solid fa-forward"></i></div>
+            </div>
+        </div>
+        <!-- Song list section -->
+        <div class="song-list" id="songList">
+            <!-- Close button for the song list -->
+            <button class="close-button" onclick="moveSongListBack()"><i class="fa-solid fa-times"></i></button>
+            <!-- List of songs with click events to select a song -->
+            <ul>
+                <li data-index="0" onclick="selectSong('assets/songs/ocean-eyes.mp3', 'assets/images/ocean-eyes.png', 'Ocean Eyes', 'Billie Eilish', 0)">Ocean Eyes</li>
+                <li data-index="1" onclick="selectSong('assets/songs/misa-misa.mp3', 'assets/images/misa-misa.png', 'Misa Misa', 'Corpse', 1)">Misa Misa</li>
+                <li data-index="2" onclick="selectSong('assets/songs/useless.mp3', 'assets/images/useless.png', 'Useless', 'Omar Apollo', 2)">Useless</li>
+                <li data-index="3" onclick="selectSong('assets/songs/when-i-am-gone.mp3', 'assets/images/eminem.jpg', 'When I am Gone', 'Eminem', 3)">When I'm Gone</li>
+                <li data-index="4" onclick="selectSong('assets/songs/dear-god.mp3', 'assets/images/dax.jpg', 'Dear God', 'Dax', 4)">Dear God</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- External JavaScript files -->
+    <script src="assets/js/main.js"></script>
+    <!-- Font Awesome icons -->
+    <script src="https://kit.fontawesome.com/27594f998b.js" crossorigin="anonymous"></script>
+</body>
+</html>
